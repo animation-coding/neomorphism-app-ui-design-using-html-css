@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App UI Design In Neumorphism</title>
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+
+<style>
+html
+{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: cursive;
+}
+body
+{
+    background-color: #1b1f23;
+    color: #626262;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+a
+{
+    color: #626262;
+}
+.text-muted
+{
+    color: #626262;
+}
+.t1
+{
+    font-size: 1.5rem;
+}
+.t2
+{
+    font-size: 1.5rem;
+}
+.t3
+{
+ font-size: 1rem;
+}
+.t4
+{
+  font-size: 0.85rem;
+}
+.w-100
+{
+    width: 100%;
+}
+.container
+{
+   /*box-shadow: 15px 15px 30px #0c0e10c9,
+    -15px -15px 30px #14191dd1,
+    inset -10px -7px 25px 0px rgba(0,0,0,0.52),
+    inset 15px 21px 24px 0px #1b1f23cf;*/
+    height: 587px;
+    width: 300px;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+   box-shadow: -4px -2px 4px 0px #262830,
+                  4px 2px 6px 0px #0e1013;
+}
+nav
+{
+    display: flex;
+    justify-content: space-between;
+}
+button, .btn, .toggle-group label
+{
+    position: relative;
+    background: inherit;
+    outline: none;
+    border: none;
+    box-shadow: -4px -2px 4px 0px #262830,
+                 4px 2px 6px 0px #111316;
+    cursor: pointer;
+}
+button:focus:after, button:active:after, .btn.active:after, 
+.toggle-group input:checked + label:after
+{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px 0px #111316 inset,
+              -2px -2px 2px 0px #262830 inset;
+
+}
+button
+{
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    
+}
+button svg.feather
+{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.fa
+{
+    color: #626262;
+    font-size: 20px;
+}
+.btn 
+{
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+}
+.fa.active
+{
+    color: #ff240f;
+}
+
+main
+{
+    padding: 1.5rem 0.25rem;
+}
+.toggle-group
+{
+    display: flex;
+    justify-content: space-around;
+}
+.toggle-group label
+{
+    flex: 1;
+    padding: 0.7rem;
+    text-align: center;
+    border-radius: 8px;
+    
+
+}
+.toggle-group label:first-of-type
+{
+    margin-right: 1rem;
+
+}
+.toggle-group input
+{
+    display: none;
+}
+.chart
+{
+    position: relative;
+    border-radius: 50%;
+    margin: 2rem;
+    box-shadow: -4px -2px 4px 0px #262830,
+                 4px 2px 6px 0px #111316;
+
+}
+.chart::after
+{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    margin: 3rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow:  2px 2px 2px 0px #111316 inset,
+              -2px -2px 2px 0px #262830 inset;
+}
+.chart .chart-label
+{
+    position: absolute;
+    top: 0;
+    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chart .chart-label span {
+  display: block;
+}
+#btntransactions
+{
+    font-size: 16px;
+    color: #626262;
+    padding: 0.75rem;
+    font-family: cursive;
+    border-radius: 6px;
+}
+#chartfill
+{
+    animation: chart 500ms linear forwards;
+}
+@keyframes chart
+{
+    from 
+    { 
+        stroke-dashoffset: 245;
+    }
+    to
+    { 
+        stroke-dashoffset: 110;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+</head>
+<body>
+    
+    <div class="container">
+
+        <header>
+        <nav>
+            <button type="button"><i class="fa fa-arrow-left"></i></button>
+            <button type="button"><i class="fa fa-search"></i></button>
+        </nav>
+        </header>
+
+        <main>
+
+            <h1 class="t1">History</h1>
+            <div class="toggle-group">
+                <input id="today-data" type="radio" name="data-choose">
+                <label for="today-data" class="t4">Today</label>
+                <input id="yesterday-data" type="radio" name="data-choose" checked>
+                <label for="yesterday-data" class="t4">Yesterday</label>
+
+            </div>
+
+            <div class="chart">
+                <div class="chart-label">
+                    <span class="t2">55%</span>
+                    <span class="text-muted">saving</span>
+                </div>
+
+                <svg class="progress" viewBox="0 0 100 100" 
+                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                  <circle r="40" cx="50" cy="50" stroke-width="7" fill="transparent" 
+                  stroke="#1c2025" class="sc"></circle>
+                  <circle id="chartfill" r="40" cx="50" cy="50" stroke-width="7" stroke-dasharray="245" 
+                  stroke-dashoffset="245" fill="transparent" stroke="#ff240f" stroke-linecap="round" 
+                  class="meter"></circle>
+                </svg>
+
+            </div>
+
+            <button id="btntransactions" class="t4 w-100">Show My Subscriber</button>
+            
+        </main>
+
+
+        <nav>
+            <a href="#" class="btn text-muted"><i class="fa fa-home"></i></a>
+            <a href="#" class="btn text-muted"><i class="fa fa-credit-card"></i></a>
+            <a href="#" class="btn text-muted active"><i class="fa fa-heart active"></i></a>
+            <a href="#" class="btn text-muted"><i class="fa fa-bell"></i></a>
+        </nav>
+
+
+    </div>
+
+</body>
+</html>
